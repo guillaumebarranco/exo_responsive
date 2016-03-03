@@ -1,0 +1,120 @@
+$header: #eeeeee;
+
+// General classes
+
+html {
+	font-family: sans-serif;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+// Common classes
+
+.blue_button {
+	color: #fff;
+	background-color: aqua;
+	padding: 5px;
+	border: none;
+	border-radius: 1px;
+}
+
+
+// Custom classes
+
+
+.logo {
+	img {
+		float: left;
+		width: 100%;
+		max-width: 50px;
+	}
+
+	h1 {
+		text-align: left;
+		margin-left: 20px;
+		font-size: 1em;
+	}
+}
+
+header {
+	background-color: $header;
+
+	a {
+		text-decoration: none;
+		color: #000;
+	}
+
+	.col {
+		text-align: center;
+	}
+}
+
+main {
+	clear: both;
+}
+
+.slider {
+	ul {
+		padding: 0;
+	}
+
+	li {
+		display: none;
+		position: relative;
+
+		&:first-child {
+			display: block;
+		}
+	}
+
+	h2, button {
+		position: absolute;
+		left: 50px;
+	}
+
+	h2 {
+		top: 50px;
+	}
+
+	button {
+		top: 130px;
+	}
+
+	img {
+		width: 60%;
+		margin: 0 auto;
+		display: block;
+	}
+}
+
+.slider_navigation {
+	text-align: center;
+
+	$span_nav: 10px;
+
+	span {
+		width: $span_nav;
+		height: $span_nav;
+		display: inline-block;
+		vertical-align: top;
+		border-radius: 50%;
+		background-color: blue;
+	}
+}
+
+section {
+	&.presentation {
+		width: 50%;
+		margin: 0 auto;
+	}
+}
+
+.bordered {
+	border-top: 1px $header solid;
+	border-bottom: 1px $header solid;
+	padding: 20px 0;
+	text-align: center;
+}
