@@ -351,7 +351,7 @@ article {
 
 	li {
 		background-color: #fff;
-		padding: 15px 20px 70px 20px;
+		padding: 15px 20px 90px 20px;
 		box-sizing: border-box;
 		margin: 20px;
 		max-width: 320px;
@@ -432,5 +432,20 @@ footer {
 			padding-bottom: 5px;
 			font-style: italic;
 		}
+	}
+}
+
+.plane {
+	position: absolute;
+	left: -200px;
+	transition: 10s;
+	display: none;
+
+	&.active {
+		display: block;
+	}
+
+	&.animate {
+		left: 110%;
 	}
 }

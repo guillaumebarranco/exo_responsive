@@ -4,12 +4,14 @@ $(document).ready(function() {
 
 	const mySlider = new Slider(),
 		myProducts = new Products(),
-		myScroll = new Scroll()
+		myScroll = new Scroll(),
+		myForm = new Form()
 	;
 
 	mySlider.init(true);
 	myProducts.init();
 	myScroll.init();
+	myForm.init();
 });
 
 function Slider() {
@@ -111,6 +113,35 @@ function Scroll() {
 				// Plus de fluidité
 				setTimeout(this.animatePictures, 100);
 			}
+		});
+	};
+}
+
+function Form() {
+
+	this.init = () => {
+		this.initFunctions();
+	};
+
+	this.initFunctions = () => {
+
+		$('form').on('submit', function(e) {
+			e.preventDefault();
+
+			$('form').empty();
+			$('form').append('<p style="color:#fff;">Merci pour votre message !</p>');
+
+			$('.plane').addClass('active');
+
+			setTimeout(function() {
+				$('.plane').addClass('animate');
+				$('html, body').css('overflow-x', 'hidden');
+
+				setTimeout(function() {
+					$('html, body').css('overflow-x', 'auto');
+					$('.plane').removeClass('active');
+				}, 10000);
+			}, 100);
 		});
 	};
 }
