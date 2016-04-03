@@ -3,6 +3,8 @@ $blue: #7BA4DA;
 $grey: #797979;
 $body: #EFEFEF;
 
+$size: 640px;
+
 // General classes
 
 html {
@@ -23,6 +25,10 @@ h2 {
 	color: #000;
 	text-align: center;
 	font-size: 3em;
+
+	@media screen and (max-width: $size) {
+		font-size: 1.5em;
+	}
 }
 
 h4 {
@@ -175,8 +181,8 @@ main {
 
 	.slide_content {
 		position: absolute;
-		left: 150px;
-		top: 50px;
+		left: 10%;
+		top: 5%;
 	}
 
 	h2 {
@@ -221,15 +227,29 @@ main {
 .presentation {
 	width: 50%;
 	margin: 0 auto;
+
+	@media screen and (max-width: $size) {
+		width: 90%;
+	}
 }
 
 article {
 	display: flex;
 
+	@media screen and (max-width: $size) {
+		display: block;
+		margin-bottom: 20px;
+	}
+
 	img {
 		position: relative;
 		transition: 1s;
 		left: -200px;
+
+		@media screen and (max-width: $size) {
+			width: 150px;
+			margin: 0 auto;
+		}
 
 		&.animate {
 			left: 0 !important;
@@ -243,8 +263,6 @@ article {
 			left: 400px;
 		}
 	}
-
-	
 
 	ul {
 		padding: 0;
@@ -319,10 +337,18 @@ article {
 
 			img {
 				max-width: 500px;
+
+				@media screen and (max-width: $size) {
+					max-width: 90%;
+				}
 			}
 
 			&.active {
 				display: flex;
+
+				@media screen and (max-width: $size) {
+					flex-direction: column;
+				}
 			}
 		}
 	}
@@ -341,12 +367,17 @@ article {
 
 	p {
 		max-width: 700px;
+		width: 85%;
 		margin: 0 auto;
 	}
 
 	ul {
 		display: flex;
 		justify-content: center;
+
+		@media screen and (max-width: $size) {
+			flex-direction: column;
+		}
 	}
 
 	li {
@@ -384,6 +415,10 @@ footer {
 	background-color: #333333;
 	display: flex;
 	justify-content: center;
+
+	@media screen and (max-width: $size) {
+		flex-direction: column;
+	}
 
 	&>div {
 		margin: 50px;
