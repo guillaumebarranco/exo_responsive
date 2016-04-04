@@ -110,6 +110,11 @@ header {
 	justify-content: space-around;
 	align-items: center;
 
+	@media screen and (max-width: $size) {
+		display: block;
+		height: auto;
+	}
+
 	a {
 		text-decoration: none;
 		color: #000;
@@ -122,6 +127,11 @@ header {
 
 .logo {
 	width: 200px;
+
+	@media screen and (max-width: $size) {
+		display: block;
+		margin: 0 auto;
+	}
 
 	img {
 		float: left;
@@ -148,6 +158,23 @@ nav {
 
 		&:first-child {
 			margin-left: 0;
+		}
+
+		@media screen and (max-width: $size) {
+			display: block;
+		}
+	}
+
+	span {
+		@media screen and (max-width: $size) {
+			display: none;
+		}
+	}
+
+	&>a {
+		@media screen and (max-width: $size) {
+			margin: 10px auto;
+			text-align: center;
 		}
 	}
 
@@ -518,6 +545,7 @@ footer {
 		color: #fff;
 		text-transform: uppercase;
 		font-size: 1em;
+		text-align: center;
 	}
 
 	.the_technology {
@@ -561,6 +589,51 @@ footer {
 			color: darken($grey, 10%);
 			padding-bottom: 5px;
 			font-style: italic;
+		}
+	}
+}
+
+.social {
+	width: 200px;
+	margin-left: -30px;
+
+	li {
+		margin-left: 20px;
+		display: inline-block;
+
+		img {
+			max-width: 30px;
+			mask-color: grey;
+		}
+
+		a {
+			display: block;
+			mask-size: 100%;
+		    height: 30px;
+		    width: 30px;
+		    mask-repeat: no-repeat;
+		    mask-position: 50%;
+			background-color: $grey;
+		}
+
+		&.facebook a {
+		    mask-image: url('../img/social/facebook.svg');
+		}
+
+		&.twitter a {
+		    mask-image: url('../img/social/twitter.svg');
+		}
+
+		&.tumblr a {
+		    mask-image: url('../img/social/tumblr.svg');
+		}
+
+		&.pinterest a {
+		    mask-image: url('../img/social/pinterest.svg');
+		}
+
+		&.instagram a {
+		    mask-image: url('../img/social/instagram.svg');
 		}
 	}
 }
