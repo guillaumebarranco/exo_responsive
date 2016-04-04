@@ -247,8 +247,7 @@ article {
 		left: -200px;
 
 		@media screen and (max-width: $size) {
-			width: 150px;
-			margin: 0 auto;
+			display: none;
 		}
 
 		&.animate {
@@ -256,8 +255,19 @@ article {
 		}
 	}
 
+	h3, h4 {
+		@media screen and (max-width: $size) {
+			text-align: center;
+		}
+	}
+
 	&.inversed {
 		flex-direction: row-reverse;
+
+		@media screen and (max-width: $size) {
+			border-bottom: solid 1px black;
+			padding-bottom: 20px;
+		}
 
 		img {
 			left: 400px;
@@ -422,6 +432,10 @@ footer {
 
 	&>div {
 		margin: 50px;
+
+		@media screen and (max-width: $size) {
+			margin: 10px auto;
+		}
 	}
 
 	h3 {
