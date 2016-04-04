@@ -8,7 +8,10 @@ $size: 640px;
 // General classes
 
 html {
-	font-family: sans-serif;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 24px;
 }
 
 body {
@@ -139,6 +142,7 @@ nav {
 		display: inline-block;
 		margin-left: 35px;
 		position: relative;
+		font-size: 14px;
 
 		&:first-child {
 			margin-left: 0;
@@ -188,6 +192,7 @@ main {
 	h2 {
 		color: white;
 		font-weight: lighter;
+		font-size: 24px;
 	}
 
 	img {
@@ -212,7 +217,6 @@ main {
 		border-radius: 50%;
 		background-color: $blue;
 		opacity: 0.6;
-		
 
 		&:first-child {
 			margin-left: 0;
@@ -227,6 +231,15 @@ main {
 .presentation {
 	width: 50%;
 	margin: 0 auto;
+
+	h2 {
+		font-size: 32px;
+		color: $grey;
+	}
+
+	h3 {
+		font-size: 24px;
+	}
 
 	@media screen and (max-width: $size) {
 		width: 90%;
@@ -287,6 +300,16 @@ article {
 
 	h2, h3, p {
 		color: #fff;
+	}
+
+	h2 {
+		font-size: 32px;
+		font-weight: 100;
+	}
+
+	h3 {
+		font-size: 48px;
+		font-weight: 100;
 	}
 
 	.products_menu {
@@ -357,8 +380,14 @@ article {
 .cards {
 	text-align: center;
 
+	h2 {
+		font-size: 48px;
+		font-weight: 100;
+	}
+
 	h3 {
-		font-size: 2em;
+		font-size: 32px;
+		font-weight: 100;
 	}
 
 	a {
@@ -415,6 +444,12 @@ footer {
 	background-color: #333333;
 	display: flex;
 	justify-content: center;
+	font-size: 13px;
+
+	h2 {
+		font-size: 48px;
+		font-weight: 100;
+	}
 
 	@media screen and (max-width: $size) {
 		flex-direction: column;
@@ -437,6 +472,11 @@ footer {
 			margin-top: 10px;
 			color: $grey;
 			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+
 
 			&:first-child {
 				margin-top: 0;
