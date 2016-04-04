@@ -8,7 +8,10 @@ $size: 640px;
 // General classes
 
 html {
-	font-family: sans-serif;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 24px;
 }
 
 body {
@@ -135,26 +138,60 @@ header {
 }
 
 nav {
-	a {
+	z-index: 2;
+
+	a, &>li {
 		display: inline-block;
 		margin-left: 35px;
 		position: relative;
+		font-size: 14px;
 
 		&:first-child {
 			margin-left: 0;
 		}
+	}
 
-		&.submenu {
-			&:after {
-				content: "";
-				width: 0;
-				height: 0;
-				border-style: solid;
-				border-width: 5px 5px 0 5px;
-				border-color: #000000 transparent transparent transparent;
-				position: absolute;
-			    top: 6px;
-				right: -15px;
+	&>a:hover {text-decoration: underline;}
+
+	.submenu {
+		position: relative;
+
+		span:after {
+			content: "";
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 5px 5px 0 5px;
+			border-color: #000000 transparent transparent transparent;
+			position: absolute;
+		    top: 9px;
+			right: -15px;
+		}
+
+		&:hover {
+			ul {
+				display: block;
+			}
+		}
+
+		ul {
+			padding: 0 0;
+			display: none;
+			position: absolute;
+			top: 10px;
+			left: 0;
+			background-color: $blue;
+			width: 140px;
+
+			a {
+				color: #fff;
+				padding: 10px 10px;
+				display: block;
+
+				&:hover {
+					background-color: #fff;
+					color: $blue;
+				}
 			}
 		}
 	}
@@ -188,6 +225,7 @@ main {
 	h2 {
 		color: white;
 		font-weight: lighter;
+		font-size: 24px;
 	}
 
 	img {
@@ -212,7 +250,6 @@ main {
 		border-radius: 50%;
 		background-color: $blue;
 		opacity: 0.6;
-		
 
 		&:first-child {
 			margin-left: 0;
@@ -227,6 +264,15 @@ main {
 .presentation {
 	width: 50%;
 	margin: 0 auto;
+
+	h2 {
+		font-size: 32px;
+		color: $grey;
+	}
+
+	h3 {
+		font-size: 24px;
+	}
 
 	@media screen and (max-width: $size) {
 		width: 90%;
@@ -299,6 +345,16 @@ article {
 		color: #fff;
 	}
 
+	h2 {
+		font-size: 32px;
+		font-weight: 100;
+	}
+
+	h3 {
+		font-size: 48px;
+		font-weight: 100;
+	}
+
 	.products_menu {
 		font-size: 0;
 		padding: 0;
@@ -343,6 +399,7 @@ article {
 
 			.picture {
 				margin-right: 40px;
+				cursor: pointer;
 			}
 
 			img {
@@ -367,8 +424,14 @@ article {
 .cards {
 	text-align: center;
 
+	h2 {
+		font-size: 48px;
+		font-weight: 100;
+	}
+
 	h3 {
-		font-size: 2em;
+		font-size: 32px;
+		font-weight: 100;
 	}
 
 	a {
@@ -397,18 +460,25 @@ article {
 		margin: 20px;
 		max-width: 320px;
 		position: relative;
+		transition: 0.4s;
+
+		&:hover {
+			box-shadow: 0 0 25px 0px $grey;
+		}
 
 		a {
 			position: absolute;
 			bottom: 20px;
 			width: 200px;
+			max-width: 80%;
 			left: 50%;
 			margin-left: -115px;
 		}
 	}
 
 	img {
-		max-width: 250px;
+		width: 250px;
+		max-width: 100%;
 	}
 }
 
@@ -425,6 +495,12 @@ footer {
 	background-color: #333333;
 	display: flex;
 	justify-content: center;
+	font-size: 13px;
+
+	h2 {
+		font-size: 48px;
+		font-weight: 100;
+	}
 
 	@media screen and (max-width: $size) {
 		flex-direction: column;
@@ -451,6 +527,11 @@ footer {
 			margin-top: 10px;
 			color: $grey;
 			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+
 
 			&:first-child {
 				margin-top: 0;
@@ -496,5 +577,38 @@ footer {
 
 	&.animate {
 		left: 110%;
+	}
+}
+
+$lightbox_width: 800px;
+$lightbox_height: 533px;
+
+.lightbox {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0, 0.7);
+	
+	.picture {
+		position: absolute;
+		width: $lightbox_width;
+		height: $lightbox_height;
+		height: 533px;
+		top: 50%;
+		left: 50%;
+		margin-left: - $lightbox_width/2;
+		margin-top: - $lightbox_height/2;
+	}
+
+	.close_lightbox {
+		position: absolute;
+		color: #fff;
+		font-size: 30px;
+		top: 150px;
+		right: 20%;
+		cursor: pointer;
 	}
 }

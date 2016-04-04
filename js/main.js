@@ -1,17 +1,19 @@
 'use strict';
 
+const mySlider = new Slider(),
+	myProducts = new Products(),
+	myScroll = new Scroll(),
+	myForm = new Form(),
+	myLightbox = new Lightbox()
+;
+
 $(document).ready(function() {
 
-	const mySlider = new Slider(),
-		myProducts = new Products(),
-		myScroll = new Scroll(),
-		myForm = new Form()
-	;
-
-	mySlider.init(true);
+	mySlider.init(false);
 	myProducts.init();
 	myScroll.init();
 	myForm.init();
+	if($(window).width() > 1000) myLightbox.init();
 });
 
 function Slider() {
@@ -142,6 +144,37 @@ function Form() {
 					$('.plane').removeClass('active');
 				}, 10000);
 			}, 100);
+		});
+	};
+}
+
+function Lightbox() {
+
+	this.init = () => {
+		this.initFunctions();
+	};
+
+	this.show = (image) => {
+		var src = image.attr('src');
+		$('.lightbox .picture').append(`<img src="${src}">`);
+		$('.lightbox').show();
+		$('html, body').css('overflow', 'hidden');
+	};
+
+	this.hide = () => {
+		$('.lightbox').hide();
+		$('.lightbox .picture').empty();
+		$('html, body').css('overflow', 'auto');
+	};
+
+	this.initFunctions = () => {
+
+		$('.products_description .picture').on('click', function() {
+			myLightbox.show($(this).find('img'));
+		});
+
+		$('.close_lightbox').on('click', () => {
+			this.hide();
 		});
 	};
 }
