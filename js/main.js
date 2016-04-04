@@ -8,7 +8,7 @@ $(document).ready(function() {
 		myForm = new Form()
 	;
 
-	mySlider.init(true);
+	mySlider.init(false);
 	myProducts.init();
 	myScroll.init();
 	myForm.init();

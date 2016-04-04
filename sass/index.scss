@@ -138,7 +138,9 @@ header {
 }
 
 nav {
-	a {
+	z-index: 2;
+
+	a, &>li {
 		display: inline-block;
 		margin-left: 35px;
 		position: relative;
@@ -147,18 +149,47 @@ nav {
 		&:first-child {
 			margin-left: 0;
 		}
+	}
 
-		&.submenu {
-			&:after {
-				content: "";
-				width: 0;
-				height: 0;
-				border-style: solid;
-				border-width: 5px 5px 0 5px;
-				border-color: #000000 transparent transparent transparent;
-				position: absolute;
-			    top: 6px;
-				right: -15px;
+	.submenu {
+		position: relative;
+
+		span:after {
+			content: "";
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 5px 5px 0 5px;
+			border-color: #000000 transparent transparent transparent;
+			position: absolute;
+		    top: 9px;
+			right: -15px;
+		}
+
+		&:hover {
+			ul {
+				display: block;
+			}
+		}
+
+		ul {
+			padding: 0 0;
+			display: none;
+			position: absolute;
+			top: 10px;
+			left: 0;
+			background-color: $blue;
+			width: 140px;
+
+			a {
+				color: #fff;
+				padding: 10px 10px;
+				display: block;
+
+				&:hover {
+					background-color: #fff;
+					color: $blue;
+				}
 			}
 		}
 	}
@@ -416,6 +447,11 @@ article {
 		margin: 20px;
 		max-width: 320px;
 		position: relative;
+		transition: 0.4s;
+
+		&:hover {
+			box-shadow: 0 0 25px 0px $grey;
+		}
 
 		a {
 			position: absolute;
